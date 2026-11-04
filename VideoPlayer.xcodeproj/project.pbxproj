@@ -1,0 +1,439 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		04F2D7DA988F07C1DC10A654 /* PlaybackPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F2C8F2666687B53597EEF70 /* PlaybackPlayer.m */; };
+		4108A4C42D93B1547FA4732B /* AVPlayerEngineTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27386A9AE55CBC7E8E4EA0CB /* AVPlayerEngineTests.swift */; };
+		52917854309AB2B70092B732 /* AVPlayerEngine.m in Sources */ = {isa = PBXBuildFile; fileRef = 52917853309AB2B30092B732 /* AVPlayerEngine.m */; };
+		52917A40309B407C0092B732 /* Media.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 52917A3F309B407C0092B732 /* Media.xcassets */; };
+		A10000000000000000000001 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = A20000000000000000000001 /* main.m */; };
+		A10000000000000000000002 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A20000000000000000000003 /* AppDelegate.m */; };
+		A10000000000000000000003 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A20000000000000000000005 /* ViewController.m */; };
+		A10000000000000000000004 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A20000000000000000000006 /* LaunchScreen.storyboard */; };
+		CD9DA85A77067BA73C31AE4C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8507B0FC12ABD51C6DADB9CF /* Foundation.framework */; };
+		F657E716F3C06FAB47893A72 /* Fakes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00274BF0C572F625AD197EFA /* Fakes.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		4BFEF6C97B33736B555925A4 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A60000000000000000000001 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = A50000000000000000000001;
+			remoteInfo = VideoPlayer;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		00274BF0C572F625AD197EFA /* Fakes.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = Fakes.swift; sourceTree = "<group>"; };
+		27386A9AE55CBC7E8E4EA0CB /* AVPlayerEngineTests.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = AVPlayerEngineTests.swift; sourceTree = "<group>"; };
+		52917851309AB0C40092B732 /* PlayerEngine.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PlayerEngine.h; sourceTree = "<group>"; };
+		52917852309AB26A0092B732 /* AVPlayerEngine.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AVPlayerEngine.h; sourceTree = "<group>"; };
+		52917853309AB2B30092B732 /* AVPlayerEngine.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AVPlayerEngine.m; sourceTree = "<group>"; };
+		52917A3F309B407C0092B732 /* Media.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Media.xcassets; path = VideoPlayer/Media.xcassets; sourceTree = SOURCE_ROOT; };
+		67E1A46EE986927315A7AED0 /* VideoPlayerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = VideoPlayerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		8507B0FC12ABD51C6DADB9CF /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS18.0.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
+		9F2C8F2666687B53597EEF70 /* PlaybackPlayer.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = PlaybackPlayer.m; sourceTree = "<group>"; };
+		A20000000000000000000001 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		A20000000000000000000002 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		A20000000000000000000003 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		A20000000000000000000004 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		A20000000000000000000005 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		A20000000000000000000006 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
+		A20000000000000000000007 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A20000000000000000000008 /* VideoPlayer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VideoPlayer.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		BEC78438C55DE4D7B6B52831 /* PlaybackPlayer.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = PlaybackPlayer.h; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		A40000000000000000000001 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C76DD41959617AD3BFFA5404 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CD9DA85A77067BA73C31AE4C /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		1149FADB1717BF0DC035D69C /* VideoPlayerTests */ = {
+			isa = PBXGroup;
+			children = (
+				27386A9AE55CBC7E8E4EA0CB /* AVPlayerEngineTests.swift */,
+				00274BF0C572F625AD197EFA /* Fakes.swift */,
+			);
+			name = VideoPlayerTests;
+			path = VideoPlayerTests;
+			sourceTree = "<group>";
+		};
+		50F15D5AD644529C9EDCDB3B /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				EA0A9CDFF73166E5A0182ABF /* iOS */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		52917850309AB06E0092B732 /* Engine */ = {
+			isa = PBXGroup;
+			children = (
+				52917851309AB0C40092B732 /* PlayerEngine.h */,
+				52917852309AB26A0092B732 /* AVPlayerEngine.h */,
+				52917853309AB2B30092B732 /* AVPlayerEngine.m */,
+				BEC78438C55DE4D7B6B52831 /* PlaybackPlayer.h */,
+				9F2C8F2666687B53597EEF70 /* PlaybackPlayer.m */,
+			);
+			path = Engine;
+			sourceTree = "<group>";
+		};
+		52917855309B2EE10092B732 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				52917A3F309B407C0092B732 /* Media.xcassets */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		A30000000000000000000001 = {
+			isa = PBXGroup;
+			children = (
+				A30000000000000000000002 /* VideoPlayer */,
+				A30000000000000000000003 /* Products */,
+				50F15D5AD644529C9EDCDB3B /* Frameworks */,
+				1149FADB1717BF0DC035D69C /* VideoPlayerTests */,
+			);
+			sourceTree = "<group>";
+		};
+		A30000000000000000000002 /* VideoPlayer */ = {
+			isa = PBXGroup;
+			children = (
+				52917855309B2EE10092B732 /* Resources */,
+				52917850309AB06E0092B732 /* Engine */,
+				A20000000000000000000002 /* AppDelegate.h */,
+				A20000000000000000000003 /* AppDelegate.m */,
+				A20000000000000000000004 /* ViewController.h */,
+				A20000000000000000000005 /* ViewController.m */,
+				A20000000000000000000006 /* LaunchScreen.storyboard */,
+				A20000000000000000000007 /* Info.plist */,
+				A20000000000000000000001 /* main.m */,
+			);
+			path = VideoPlayer;
+			sourceTree = "<group>";
+		};
+		A30000000000000000000003 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				A20000000000000000000008 /* VideoPlayer.app */,
+				67E1A46EE986927315A7AED0 /* VideoPlayerTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		EA0A9CDFF73166E5A0182ABF /* iOS */ = {
+			isa = PBXGroup;
+			children = (
+				8507B0FC12ABD51C6DADB9CF /* Foundation.framework */,
+			);
+			name = iOS;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		62F4D33242DCE1EEE335DF50 /* VideoPlayerTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 80FE7B35D6A9FE7C23FF8783 /* Build configuration list for PBXNativeTarget "VideoPlayerTests" */;
+			buildPhases = (
+				17A726EF8A75A0E6342CDD6A /* Sources */,
+				C76DD41959617AD3BFFA5404 /* Frameworks */,
+				B3C20AAFE10BF2199AB19CE7 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				69FD9AE62B0CC830D228CD37 /* PBXTargetDependency */,
+			);
+			name = VideoPlayerTests;
+			productName = VideoPlayerTests;
+			productReference = 67E1A46EE986927315A7AED0 /* VideoPlayerTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		A50000000000000000000001 /* VideoPlayer */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A70000000000000000000002 /* Build configuration list for PBXNativeTarget "VideoPlayer" */;
+			buildPhases = (
+				A40000000000000000000002 /* Sources */,
+				A40000000000000000000001 /* Frameworks */,
+				A40000000000000000000003 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = VideoPlayer;
+			productName = VideoPlayer;
+			productReference = A20000000000000000000008 /* VideoPlayer.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		A60000000000000000000001 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastUpgradeCheck = 2600;
+				TargetAttributes = {
+					A50000000000000000000001 = {
+						LastSwiftMigration = 2630;
+					};
+				};
+			};
+			buildConfigurationList = A70000000000000000000001 /* Build configuration list for PBXProject "VideoPlayer" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = A30000000000000000000001;
+			productRefGroup = A30000000000000000000003 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				A50000000000000000000001 /* VideoPlayer */,
+				62F4D33242DCE1EEE335DF50 /* VideoPlayerTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		A40000000000000000000003 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A10000000000000000000004 /* LaunchScreen.storyboard in Resources */,
+				52917A40309B407C0092B732 /* Media.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B3C20AAFE10BF2199AB19CE7 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		17A726EF8A75A0E6342CDD6A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4108A4C42D93B1547FA4732B /* AVPlayerEngineTests.swift in Sources */,
+				F657E716F3C06FAB47893A72 /* Fakes.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A40000000000000000000002 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A10000000000000000000001 /* main.m in Sources */,
+				52917854309AB2B70092B732 /* AVPlayerEngine.m in Sources */,
+				A10000000000000000000002 /* AppDelegate.m in Sources */,
+				A10000000000000000000003 /* ViewController.m in Sources */,
+				04F2D7DA988F07C1DC10A654 /* PlaybackPlayer.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		69FD9AE62B0CC830D228CD37 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = VideoPlayer;
+			target = A50000000000000000000001 /* VideoPlayer */;
+			targetProxy = 4BFEF6C97B33736B555925A4 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		4774B0B003C992D095D5DA3F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				ENABLE_TESTING_SEARCH_PATHS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				OTHER_SWIFT_FLAGS = "-Xcc -fmodule-map-file=$(SRCROOT)/VideoPlayer/Engine/module.modulemap";
+				PRODUCT_BUNDLE_IDENTIFIER = com.example.VideoPlayerTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_INCLUDE_PATHS = "$(SRCROOT)/VideoPlayer/Engine";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/VideoPlayer.app/VideoPlayer";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		73363218849EFCBA1D42DAF4 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				ENABLE_TESTING_SEARCH_PATHS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				OTHER_SWIFT_FLAGS = "-Xcc -fmodule-map-file=$(SRCROOT)/VideoPlayer/Engine/module.modulemap";
+				PRODUCT_BUNDLE_IDENTIFIER = com.example.VideoPlayerTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_INCLUDE_PATHS = "$(SRCROOT)/VideoPlayer/Engine";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/VideoPlayer.app/VideoPlayer";
+			};
+			name = Debug;
+		};
+		A80000000000000000000001 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		A80000000000000000000002 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		A80000000000000000000003 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = VideoPlayer/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.example.VideoPlayer;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 6.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		A80000000000000000000004 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = VideoPlayer/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.example.VideoPlayer;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SWIFT_VERSION = 6.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		80FE7B35D6A9FE7C23FF8783 /* Build configuration list for PBXNativeTarget "VideoPlayerTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4774B0B003C992D095D5DA3F /* Release */,
+				73363218849EFCBA1D42DAF4 /* Debug */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A70000000000000000000001 /* Build configuration list for PBXProject "VideoPlayer" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A80000000000000000000001 /* Debug */,
+				A80000000000000000000002 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A70000000000000000000002 /* Build configuration list for PBXNativeTarget "VideoPlayer" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A80000000000000000000003 /* Debug */,
+				A80000000000000000000004 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = A60000000000000000000001 /* Project object */;
+}

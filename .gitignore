@@ -1,0 +1,61 @@
+# Private notes
+private/
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Xcode: build products
+build/
+DerivedData/
+*.xcarchive
+*.ipa
+*.dSYM
+*.dSYM.zip
+*.app
+
+# Xcode: per-user state
+xcuserdata/
+*.xcuserstate
+*.xcscmblueprint
+*.xccheckout
+*.moved-aside
+*.hmap
+*.pbxuser
+*.mode1v3
+*.mode2v3
+*.perspectivev3
+IDEWorkspaceChecks.plist
+*.xcodeproj/project.xcworkspace/xcuserdata/
+*.xcworkspace/xcuserdata/
+
+# Swift Package Manager
+.build/
+.swiftpm/
+Packages/
+
+# CocoaPods
+Pods/
+
+# Carthage
+Carthage/Build/
+
+# Fastlane
+fastlane/report.xml
+fastlane/Preview.html
+fastlane/screenshots/**/*.png
+fastlane/test_output
+
+# Test and coverage output
+*.xcresult
+*.profraw
+*.gcda
+*.gcno
+
+# Editors and tools
+.idea/
+.vscode/
+*.swp
+*~
+.claude/

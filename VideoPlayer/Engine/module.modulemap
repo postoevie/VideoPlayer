@@ -1,0 +1,7 @@
+// Lets Swift (the tests) import the Objective-C engine headers as a module, without a bridging header.
+module VideoPlayerEngine {
+    header "PlayerEngine.h"
+    header "PlaybackPlayer.h"
+    header "AVPlayerEngine.h"
+    export *
+}
