@@ -52,7 +52,7 @@ final class FakePlayer: NSObject, PlaybackPlayer {
         pauseCount += 1
     }
 
-    func seek(to time: CMTime) {
+    func seek(to time: CMTime, toleranceBefore: CMTime, toleranceAfter: CMTime) {
         seekTimes.append(time)
     }
 

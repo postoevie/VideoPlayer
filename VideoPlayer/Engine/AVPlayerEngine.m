@@ -53,6 +53,19 @@ static void *ItemCtx = &ItemCtx;
     return [self.player currentTime];
 }
 
+- (CMTime)duration {
+    NSObject<PlaybackItem> *item = self.player.currentItem;
+    return item ? item.duration : kCMTimeIndefinite;
+}
+
+- (AVPlayerLayer *)makePlayerLayer {
+    [self assertMainThread];
+    if ([self.player isKindOfClass:[AVPlayer class]]) {
+        return [AVPlayerLayer playerLayerWithPlayer:(AVPlayer *)self.player];
+    }
+    return nil;
+}
+
 - (void)assertMainThread {
     NSAssert([NSThread isMainThread], @"AVPlayerEngine must be used on the main thread");
 }
@@ -237,7 +250,9 @@ static void *ItemCtx = &ItemCtx;
 
 - (void)seekToTime:(CMTime)time {
     [self assertMainThread];
-    [self.player seekToTime:time];
+    // Exact seek. The default seek may stop at the nearest key frame, which can be far from the time
+    // the user chose (with a single key frame, at the start of the video).
+    [self.player seekToTime:time toleranceBefore:kCMTimeZero toleranceAfter:kCMTimeZero];
     // After the end the player is paused and sends no event on a seek, so leave Ended manually.
     // Other states are updated by the player events (e.g. a seek while playing may start buffering).
     // Accepted limitation: if the seek target is the end of the item, the state becomes Paused

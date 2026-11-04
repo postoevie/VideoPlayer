@@ -4,13 +4,14 @@ A small iOS video playback engine written in Objective-C. It plays a video throu
 
 ## Status
 
-The engine covers loading, playback control, state tracking and error reporting, and it is covered by unit tests. It does not render video yet: the underlying `AVPlayer` is private, so there is no layer to attach to a view. The app target is only a host for the tests.
+The engine covers loading, playback control, state tracking and error reporting, and it is covered by unit tests. The app is a small demo player built on it: a Swift and UIKit screen with a view model on RxSwift (`PlayerViewModel`), which plays a bundled 8 second test clip.
 
 ## Requirements
 
 - iOS 13 or later
 - Xcode (the project is built and tested with Xcode 26)
 - Content to play: a file or network URL passed to `loadContent:`
+- The demo screen uses [RxSwift](https://github.com/ReactiveX/RxSwift) 6, added through Swift Package Manager. The engine itself does not depend on it.
 
 ## Installation
 
@@ -61,11 +62,12 @@ All engine methods must be called on the main thread, and all delegate methods a
 | Member | Purpose |
 | --- | --- |
 | `currentTime` | Current playback position |
+| `duration` | Duration of the loaded content, indefinite until it is loaded |
 | `loadContent:` | Loads the content at a URL and prepares it for playback. Does not start playing |
 | `play` / `pause` | Start or resume, and pause playback |
 | `seekToTime:` | Move the playback position |
 
-`AVPlayerEngine` implements it with a single `AVPlayer` that is reused across loads. It watches the player and the current item with KVO and notifications, and turns what it sees into state changes. See [`VideoPlayer/Engine/README.md`](VideoPlayer/Engine/README.md) for the state machine, the transitions and the known limits.
+`AVPlayerEngine` implements it with a single `AVPlayer` that is reused across loads. It watches the player and the current item with KVO and notifications, and turns what it sees into state changes. `makePlayerLayer` on `AVPlayerEngine` returns an `AVPlayerLayer` that shows the video. See [`VideoPlayer/Engine/README.md`](VideoPlayer/Engine/README.md) for the state machine, the transitions and the known limits.
 
 ## Delegate
 
@@ -88,6 +90,14 @@ All engine methods must be called on the main thread, and all delegate methods a
 | `Ended` | Playback reached the end |
 
 There is no separate failed state. A failure puts the engine in `Idle` and is then reported once through `engine:didFailWithError:`.
+
+## Demo app
+
+`PlayerViewController` wires an `AVPlayerEngine`, a `PlayerViewModel` and a `PlayerView` together.
+
+- `RxPlayerEngineDelegateProxy` is a RxCocoa `DelegateProxy` over the Objective-C delegate. `engine.rx.state`, `engine.rx.error` and `engine.rx.bufferedTime` are streams built on it.
+- `PlayerViewModel` turns the input (button taps, slider values) into engine calls and the engine events into what the view shows: the button title and the status text come from the state, the slider and the time labels from the state, the position and the duration (`combineLatest` of the streams), a seek goes through `throttle` and `distinctUntilChanged`, and a tap uses `withLatestFrom(state)` to toggle.
+- `PlayerView` is a plain UIKit view with no logic and no animations.
 
 ## Testing
 
@@ -112,6 +122,13 @@ VideoPlayer/
     AVPlayerEngine.h/.m   PlayerEngine implementation built on AVPlayer
     PlaybackPlayer.h/.m   Protocols over AVPlayer and AVPlayerItem (the test seam)
     module.modulemap      Module for importing the headers from Swift
+  UI/
+    RxPlayerEngineDelegateProxy.swift   Delegate proxy over PlayerEngineDelegate
+    PlayerEngine+Rx.swift               engine.rx.state, .error, .bufferedTime
+    PlayerViewModel.swift               View model (RxSwift)
+    PlayerView.swift                    Player view (UIKit)
+    PlayerViewController.swift          Wires the engine, the view model and the view
+  Resources/sample.mp4    8 second generated test clip
 VideoPlayerTests/
   AVPlayerEngineTests.swift   State machine tests
   Fakes.swift                 Fake player and item

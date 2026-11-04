@@ -36,6 +36,9 @@ typedef NS_ENUM(NSInteger, PlayerState) {
 /// Current playback position.
 @property (nonatomic, readonly) CMTime currentTime;
 
+/// Duration of the loaded content. It is not numeric (kCMTimeIndefinite) until the content is loaded.
+@property (nonatomic, readonly) CMTime duration;
+
 /// Loads the content at the given URL and prepares it for playback. Does not start playing.
 /// Exception: when called while the content is playing, the player keeps playing, so the new content
 /// starts by itself once it is ready (the state goes Loading, Ready, then Playing or Buffering).
@@ -53,7 +56,7 @@ typedef NS_ENUM(NSInteger, PlayerState) {
 /// Pauses playback.
 - (void) pause;
 
-/// Moves the playback position to the given time.
+/// Moves the playback position exactly to the given time, not to the nearest key frame.
 /// Called in PlayerStateEnded, it moves the state to PlayerStatePaused. If the target is the end of the
 /// content, the playhead stays at the end and a following play does nothing.
 - (void) seekToTime:(CMTime)time;

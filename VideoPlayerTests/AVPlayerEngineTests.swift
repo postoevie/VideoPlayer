@@ -563,10 +563,58 @@ final class BufferedTimeTests: EngineTestCase {
     }
 }
 
+// MARK: - Duration and player layer
+
+final class EngineAPITests: EngineTestCase {
+
+    func test_duration_isIndefiniteBeforeLoading() {
+        XCTAssertTrue(engine.duration.isIndefinite)
+    }
+
+    func test_duration_isTheDurationOfTheCurrentItem() {
+        let item = load()
+        item.duration = CMTime(seconds: 12, preferredTimescale: 600)
+
+        XCTAssertEqual(CMTimeGetSeconds(engine.duration), 12)
+    }
+
+    func test_makePlayerLayer_isNilOnAFakePlayer() {
+        XCTAssertNil(engine.makePlayerLayer())
+    }
+}
+
 // MARK: - Real AVPlayer
 
 /// A smoke test with the real AVPlayer, to check that the fake behaves like it.
 final class RealPlayerSmokeTests: XCTestCase {
+
+    /// The slider needs the exact position. A seek with the default tolerance snaps to a key frame, which
+    /// made the video jump back to the start (the clip has a key frame every second).
+    func test_realPlayer_seeksToTheExactTime() throws {
+        let url = try XCTUnwrap(Bundle.main.url(forResource: "sample", withExtension: "mp4"),
+                                "sample.mp4 must be in the app bundle")
+        let engine = AVPlayerEngine()
+        let spy = SpyDelegate()
+        engine.delegate = spy
+        let ready = expectation(description: "ready")
+        spy.onState = { state in
+            if state == .ready { ready.fulfill() }
+        }
+        engine.loadContent(url)
+        wait(for: [ready], timeout: 10)
+
+        engine.seek(to: CMTime(seconds: 4.5, preferredTimescale: 600))
+
+        // Let the seek finish; the position of a paused player is stable after that
+        let settled = expectation(description: "seek settled")
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1) { settled.fulfill() }
+        wait(for: [settled], timeout: 5)
+        XCTAssertEqual(CMTimeGetSeconds(engine.currentTime), 4.5, accuracy: 0.05)
+    }
+
+    func test_realPlayer_makesALayer() {
+        XCTAssertNotNil(AVPlayerEngine().makePlayerLayer())
+    }
 
     func test_realPlayer_missingFile_goesIdle_andReportsError() {
         let engine = AVPlayerEngine()

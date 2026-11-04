@@ -32,7 +32,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)play;
 - (void)pause;
 - (void)seekToTime:(CMTime)time completionHandler:(void (^)(BOOL finished))completionHandler;
-- (void)seekToTime:(CMTime)time;
+- (void)seekToTime:(CMTime)time toleranceBefore:(CMTime)toleranceBefore toleranceAfter:(CMTime)toleranceAfter;
 
 /// Creates an item for the content at the URL. The item is not attached to the player yet.
 - (NSObject<PlaybackItem> *)makeItemWithURL:(NSURL *)url;
