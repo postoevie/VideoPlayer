@@ -56,7 +56,8 @@ typedef NS_ENUM(NSInteger, PlayerState) {
 /// Pauses playback.
 - (void) pause;
 
-/// Moves the playback position exactly to the given time, not to the nearest key frame.
+/// Moves the playback position to the given time. The result may differ from it by up to half a second
+/// (a small tolerance keeps the seek fast, a zero tolerance would need much more decoding).
 /// Called in PlayerStateEnded, it moves the state to PlayerStatePaused. If the target is the end of the
 /// content, the playhead stays at the end and a following play does nothing.
 - (void) seekToTime:(CMTime)time;

@@ -28,12 +28,33 @@ final class PlayerViewController: UIViewController {
         }
         bind()
 
-        guard let url = Bundle.main.url(forResource: "sample", withExtension: "mp4") else {
+        guard let url = contentURL() else {
             playerView.statusLabel.text = "sample.mp4 is missing from the bundle"
             return
         }
         // After bind(): the view model must subscribe to the engine before the first load
         viewModel.load(url)
+    }
+
+    /// The demo plays a network stream, so buffering can be seen (with a throttled network).
+    /// Switch to `.local` to play the bundled sample.mp4 instead.
+    private enum Source {
+        case local
+        case remote
+    }
+
+    private let source: Source = .remote
+
+    // HLS example stream by Apple. It is served over https, so App Transport Security needs no exception.
+    private static let remoteURL = URL(string: "https://devstreaming-cdn.apple.com/videos/streaming/examples/img_bipbop_adv_example_fmp4/master.m3u8")
+
+    private func contentURL() -> URL? {
+        switch source {
+        case .local:
+            return Bundle.main.url(forResource: "sample", withExtension: "mp4")
+        case .remote:
+            return Self.remoteURL
+        }
     }
 
     private func bind() {

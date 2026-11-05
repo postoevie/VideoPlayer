@@ -27,6 +27,9 @@
 static void *PlayerCtx = &PlayerCtx;
 static void *ItemCtx = &ItemCtx;
 
+// How far, in seconds, a seek may land from the requested time (before and after it)
+static const Float64 SeekTolerance = 0.5;
+
 @implementation AVPlayerEngine
 
 - (instancetype)init
@@ -250,9 +253,13 @@ static void *ItemCtx = &ItemCtx;
 
 - (void)seekToTime:(CMTime)time {
     [self assertMainThread];
-    // Exact seek. The default seek may stop at the nearest key frame, which can be far from the time
-    // the user chose (with a single key frame, at the start of the video).
-    [self.player seekToTime:time toleranceBefore:kCMTimeZero toleranceAfter:kCMTimeZero];
+    // Seek with a small tolerance. The default seek has no tolerance limit and may stop at the nearest key
+    // frame, which can be far from the time the user chose (with a single key frame, at the start of the
+    // video). A zero tolerance is exact, but Apple recommends it only for media editing, because it may
+    // need to decode a large amount of data. The player may stop within the tolerance of the target;
+    // where the window has no key frame, it has to decode up to the target.
+    CMTime tolerance = CMTimeMakeWithSeconds(SeekTolerance, 600);
+    [self.player seekToTime:time toleranceBefore:tolerance toleranceAfter:tolerance];
     // After the end the player is paused and sends no event on a seek, so leave Ended manually.
     // Other states are updated by the player events (e.g. a seek while playing may start buffering).
     // Accepted limitation: if the seek target is the end of the item, the state becomes Paused
